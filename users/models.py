@@ -1,16 +1,14 @@
 from django.db import models
 from dorms.models import Dorm
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 class Role(models.Model):
     name = models.CharField(max_length=120)
 
-
-class User(models.Model):
-    username = models.CharField(max_length=120)
-    email = models.CharField(max_length=120)
-    password = models.CharField(max_length=120)
-    timestamp = models.DateField(auto_now=True)
+    def __str__(self):
+        return self.name
 
 
 class Profile(models.Model):
